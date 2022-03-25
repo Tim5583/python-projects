@@ -1,11 +1,8 @@
-print("Welcome to the Guessing Game, my friend. First, how does this work? First, you give the range and you think of one number in that range. (0 - your number)\n")
-
+print("Welcome to the Guessing Game; First, how does this work? First, you give the range and you think of one number in that range. (0 - your number)\n")
 print("How to play")
 print("if number is low you enter > 'l'")
 print("if number is high you enter > 'h'")
 print("if i guess the correct you enter > 'c'")
-
-max_number = int(input("What is the range > 0 to : "))
 
 
 def computer_guess(min, max):
@@ -34,16 +31,20 @@ def guess_my_number(x):
             return
         elif user_answer == "h":
             print('"OOPs!"\n')
-            min = computers_guess
+            min = computers_guess - 1
             computers_guess = computer_guess(min, max)
             user_answer = display_answer(computers_guess)
         elif user_answer == "l":
             print('"OPPs!"\n')
-            max = computers_guess
+            max = computers_guess + 1
             computers_guess = computer_guess(min, max)
             user_answer = display_answer(computers_guess)
         else:
             print("I don't undestand! did you read the instructions??")
 
         
-guess_my_number(max_number)
+try:
+    max_number = int(input("What is the range > 0 to : "))
+    guess_my_number(max_number)
+except:
+    print("Enter a Valid Input")
